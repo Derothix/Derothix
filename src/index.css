@@ -123,3 +123,13 @@ select:focus {
     line-height: 2.5rem;
   }
 }
+
+/* Ensure smooth scrolling works properly */
+* {
+  scroll-behavior: smooth;
+}
+
+/* Fix for navigation positioning */
+section {
+  scroll-margin-top: 80px;
+}

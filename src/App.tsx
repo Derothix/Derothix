@@ -13,22 +13,32 @@ function App() {
     // Smooth scroll behavior for anchor links
     const handleAnchorClick = (e: Event) => {
       const target = e.target as HTMLAnchorElement;
-      if (target.getAttribute('href')?.startsWith('#')) {
+      const href = target.getAttribute('href');
+
+      if (href && href.startsWith('#')) {
         e.preventDefault();
-        const id = target.getAttribute('href')?.slice(1);
-        const element = document.getElementById(id || '');
+        const id = href.slice(1);
+        const element = document.getElementById(id);
+
         if (element) {
-          const offsetTop = element.offsetTop - 80; // Account for fixed header
+          const headerHeight = 80; // Account for fixed header
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+
           window.scrollTo({
-            top: offsetTop,
+            top: offsetPosition,
             behavior: 'smooth'
           });
         }
       }
     };
 
+    // Add event listener to document for all anchor clicks
     document.addEventListener('click', handleAnchorClick);
-    return () => document.removeEventListener('click', handleAnchorClick);
+
+    return () => {
+      document.removeEventListener('click', handleAnchorClick);
+    };
   }, []);
 
   // Add fade-in animation on scroll
@@ -53,28 +63,28 @@ function App() {
   }, []);
 
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <main>
-        <Hero />
-        <div className="fade-on-scroll">
-          <About />
-        </div>
-        <div className="fade-on-scroll">
-          <Portfolio />
-        </div>
-        <div className="fade-on-scroll">
-          <Pricing />
-        </div>
-        <div className="fade-on-scroll">
-          <Testimonials />
-        </div>
-        <div className="fade-on-scroll">
-          <Contact />
-        </div>
-      </main>
-      <Footer />
-    </div>
+      <div className="min-h-screen">
+        <Navigation />
+        <main>
+          <Hero />
+          <div className="fade-on-scroll">
+            <About />
+          </div>
+          <div className="fade-on-scroll">
+            <Portfolio />
+          </div>
+          <div className="fade-on-scroll">
+            <Pricing />
+          </div>
+          <div className="fade-on-scroll">
+            <Testimonials />
+          </div>
+          <div className="fade-on-scroll">
+            <Contact />
+          </div>
+        </main>
+        <Footer />
+      </div>
   );
 }
 
