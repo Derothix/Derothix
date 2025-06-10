@@ -48,7 +48,7 @@ const Navigation = () => {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
               <Globe className="h-8 w-8 text-amber-600" />
-              <span className="text-xl font-bold text-white">Derothix test</span>
+              <span className="text-xl font-bold text-white">Derothix</span>
             </div>
 
             {/* Desktop Navigation */}
