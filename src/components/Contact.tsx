@@ -60,7 +60,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900">Téléphone</div>
-                  <div className="text-gray-600">+41 76 123 45 67</div>
+                  <div className="text-gray-600">+41 79 366 14 61</div>
                 </div>
               </div>
               
@@ -70,7 +70,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900">Email</div>
-                  <div className="text-gray-600">contact@webcraft-pro.ch</div>
+                  <div className="text-gray-600">derothix@gmail.com</div>
                 </div>
               </div>
               
@@ -80,7 +80,7 @@ const Contact = () => {
                 </div>
                 <div>
                   <div className="font-semibold text-gray-900">Adresse</div>
-                  <div className="text-gray-600">Lausanne, Suisse</div>
+                  <div className="text-gray-600">Attalens, Suisse</div>
                 </div>
               </div>
             </div>
@@ -111,7 +111,7 @@ const Contact = () => {
             <div className="mt-8 p-6 bg-stone-50 rounded-xl">
               <h4 className="font-semibold text-gray-900 mb-4">Questions fréquentes</h4>
               <ul className="space-y-2 text-sm text-gray-600">
-                <li>• Délai moyen : 2-4 semaines selon le projet</li>
+                <li>• Délai moyen : 1-3 semaines selon le projet</li>
                 <li>• Devis gratuit sous 24h</li>
                 <li>• Paiement en 3 fois possible</li>
                 <li>• Modifications incluses pendant le développement</li>
@@ -181,7 +181,7 @@ const Contact = () => {
 
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                  Décrivez votre projet *
+                  Décrivez votre projet en quelques mots*
                 </label>
                 <textarea
                   id="message"
