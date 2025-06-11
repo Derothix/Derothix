@@ -11,20 +11,18 @@ const About = () => {
             </h2>
             <div className="space-y-6 text-gray-700">
               <p className="text-lg leading-relaxed">
-                Fondée en 2020 par un passionné du web design, WebCraft Pro est née 
-                d'une vision simple : démocratiser l'accès à des sites web professionnels 
-                pour tous les entrepreneurs et entreprises.
+                Nous, c’est Maxime et Valentin. Tous les deux diplômés d’un CFC en développement d’applications,
+                on partage depuis toujours une passion commune pour la création web et l’entrepreneuriat.
               </p>
               <p className="leading-relaxed">
-                Notre mission est de transformer vos idées en expériences digitales 
-                remarquables. Nous combinons créativité, expertise technique et 
-                compréhension business pour créer des sites qui ne se contentent 
-                pas d'être beaux, mais qui performent réellement.
+                Originaires d’Attalens, on a grandi avec l’envie de bâtir quelque chose qui nous ressemble.
+                En 2025, après plusieurs années d’expérience et de projets personnels, on décide enfin de lancer notre
+                propre startup de création digitale.
               </p>
               <p className="leading-relaxed">
-                Chaque projet est une nouvelle aventure où nous mettons notre 
-                savoir-faire au service de votre vision, en respectant vos délais 
-                et votre budget.
+                Notre objectif est simple : rendre accessible à tous un web de qualité, beau, rapide et adapté aux besoins
+                concrets des entreprises. Que vous soyez une petite entreprise, un indépendant ou une startup ambitieuse,
+                on vous accompagne pour donner vie à votre présence en ligne.
               </p>
             </div>
           </div>
