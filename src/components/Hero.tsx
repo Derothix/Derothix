@@ -1,4 +1,4 @@
-import { ArrowRight, Code, Palette, Zap } from 'lucide-react';
+import { ArrowRight, Code, Palette, Zap, ChevronDown } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -17,8 +17,9 @@ const Hero = () => {
               <span className="text-amber-600 block">présence digitale</span>
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-lg">
-              Nous transformons vos idées en sites web exceptionnels. 
-              Design moderne, performance optimale et expérience utilisateur remarquable.
+              Nous transformons vos idées en sites web exceptionnels. Design
+              moderne, performance optimale et expérience utilisateur
+              remarquable.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
@@ -39,21 +40,38 @@ const Hero = () => {
 
           <div className="grid grid-cols-1 gap-6">
             {[
-              { icon: Code, title: 'Développement Sur-Mesure', desc: 'Code propre et optimisé pour vos besoins spécifiques' },
-              { icon: Palette, title: 'Design Moderne', desc: 'Interface utilisateur intuitive et visuellement impactante' },
-              { icon: Zap, title: 'Performance Optimale', desc: 'Sites rapides et optimisés pour le référencement' }
+              {
+                icon: Code,
+                title: 'Développement Sur-Mesure',
+                desc: 'Code propre et optimisé pour vos besoins spécifiques',
+              },
+              {
+                icon: Palette,
+                title: 'Design Moderne',
+                desc: 'Interface utilisateur intuitive et visuellement impactante',
+              },
+              {
+                icon: Zap,
+                title: 'Performance Optimale',
+                desc: 'Sites rapides et optimisés pour le référencement',
+              },
             ].map((item, index) => (
               <div
                 key={index}
                 className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 hover:border-amber-600/50 transition-all duration-300 group"
               >
                 <item.icon className="h-8 w-8 text-amber-600 mb-3 group-hover:scale-110 transition-transform duration-200" />
-                <h3 className="text-lg font-semibold text-white mb-2">{item.title}</h3>
+                <h3 className="text-lg font-semibold text-white mb-2">
+                  {item.title}
+                </h3>
                 <p className="text-gray-400 text-sm">{item.desc}</p>
               </div>
             ))}
           </div>
         </div>
+      </div>
+      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce text-amber-600">
+        <ChevronDown className="h-6 w-6" />
       </div>
     </section>
   );

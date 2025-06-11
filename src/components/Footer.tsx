@@ -1,4 +1,4 @@
-import { Globe, Heart, ArrowUp } from 'lucide-react';
+import { Heart, ArrowUp } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -12,11 +12,15 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <Globe className="h-8 w-8 text-amber-600" />
-              <span className="text-xl font-bold">WebCraft Pro</span>
+              <img
+                src="src/assets/logo_no_bg.webp"
+                alt="Logo"
+                className="h-8 w-8"
+              />
+              <span className="text-xl font-bold">DeRoThix</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Nous créons des expériences web exceptionnelles qui transforment 
+              Nous créons des expériences web exceptionnelles qui transforment
               vos idées en succès digitaux. Votre vision, notre expertise.
             </p>
             <div className="flex space-x-4">
@@ -30,11 +34,46 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#" className="hover:text-amber-600 transition-colors duration-200">Sites vitrines</a></li>
-              <li><a href="#" className="hover:text-amber-600 transition-colors duration-200">E-commerce</a></li>
-              <li><a href="#" className="hover:text-amber-600 transition-colors duration-200">Applications web</a></li>
-              <li><a href="#" className="hover:text-amber-600 transition-colors duration-200">Refonte de sites</a></li>
-              <li><a href="#" className="hover:text-amber-600 transition-colors duration-200">Maintenance</a></li>
+              <li>
+                <a
+                  href="#"
+                  className="hover:text-amber-600 transition-colors duration-200"
+                >
+                  Sites vitrines
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="hover:text-amber-600 transition-colors duration-200"
+                >
+                  E-commerce
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="hover:text-amber-600 transition-colors duration-200"
+                >
+                  Applications web
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="hover:text-amber-600 transition-colors duration-200"
+                >
+                  Refonte de sites
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  className="hover:text-amber-600 transition-colors duration-200"
+                >
+                  Maintenance
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -42,27 +81,68 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold mb-4">Liens utiles</h3>
             <ul className="space-y-2 text-sm text-gray-300">
-              <li><a href="#histoire" className="hover:text-amber-600 transition-colors duration-200">Notre histoire</a></li>
-              <li><a href="#creations" className="hover:text-amber-600 transition-colors duration-200">Portfolio</a></li>
-              <li><a href="#prix" className="hover:text-amber-600 transition-colors duration-200">Tarifs</a></li>
-              <li><a href="#avis" className="hover:text-amber-600 transition-colors duration-200">Témoignages</a></li>
-              <li><a href="#contact" className="hover:text-amber-600 transition-colors duration-200">Contact</a></li>
+              <li>
+                <a
+                  href="#histoire"
+                  className="hover:text-amber-600 transition-colors duration-200"
+                >
+                  Notre histoire
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#creations"
+                  className="hover:text-amber-600 transition-colors duration-200"
+                >
+                  Portfolio
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#prix"
+                  className="hover:text-amber-600 transition-colors duration-200"
+                >
+                  Tarifs
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#avis"
+                  className="hover:text-amber-600 transition-colors duration-200"
+                >
+                  Témoignages
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#contact"
+                  className="hover:text-amber-600 transition-colors duration-200"
+                >
+                  Contact
+                </a>
+              </li>
             </ul>
           </div>
         </div>
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-1 text-sm text-gray-400 mb-4 md:mb-0">
-            <span>© 2025 Derotix. Créé avec</span>
+            <span>© 2025 DeRoThix. Créé avec</span>
             <Heart className="h-4 w-4 text-red-500" />
             <span>en Suisse.</span>
           </div>
-          
+
           <div className="flex items-center space-x-6">
-            <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors duration-200">
+            <a
+              href="#"
+              className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
+            >
               Mentions légales
             </a>
-            <a href="#" className="text-sm text-gray-400 hover:text-white transition-colors duration-200">
+            <a
+              href="#"
+              className="text-sm text-gray-400 hover:text-white transition-colors duration-200"
+            >
               Confidentialité
             </a>
             <button
