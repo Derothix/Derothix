@@ -1,4 +1,3 @@
-import React from 'react';
 import { Check, Star, Zap, Crown } from 'lucide-react';
 
 const Pricing = () => {
@@ -10,11 +9,11 @@ const Pricing = () => {
       popular: false,
       description: 'Parfait pour débuter votre présence en ligne',
       features: [
-        'Site vitrine 5 pages maximum',
+        'Site vitrine 3 pages maximum',
         'Design responsive (mobile/desktop)',
         'Optimisation SEO de base',
         'Formulaire de contact',
-        'Hébergement 1 an inclus',
+        'Hébergement inclus',
         'Support technique 3 mois',
         'Livraison sous 2 semaines'
       ],
@@ -27,15 +26,14 @@ const Pricing = () => {
       popular: true,
       description: 'Idéal pour les entreprises en croissance',
       features: [
-        'Site jusqu\'à 10 pages',
+        'Site jusqu\'à 6 pages',
         'Design sur-mesure premium',
         'Blog intégré avec CMS',
         'Optimisation SEO avancée',
         'Analytics et suivi de performance',
         'Formulaires multiples',
-        'Intégrations réseaux sociaux',
         'Support technique 6 mois',
-        'Livraison sous 3 semaines'
+        'Livraison sous 2 semaines'
       ],
       cta: 'Choisir Medium'
     },

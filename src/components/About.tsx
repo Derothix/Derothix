@@ -1,4 +1,3 @@
-import React from 'react';
 import { Users, Target, Award } from 'lucide-react';
 
 const About = () => {
@@ -34,7 +33,7 @@ const About = () => {
             {[
               {
                 icon: Users,
-                number: '50+',
+                number: '2+',
                 label: 'Clients Satisfaits',
                 desc: 'Entrepreneurs et entreprises nous font confiance'
               },
@@ -46,7 +45,7 @@ const About = () => {
               },
               {
                 icon: Award,
-                number: '3 ans',
+                number: '1 ans',
                 label: 'D\'Excellence',
                 desc: 'Innovation constante dans le web design'
               }
@@ -56,9 +55,10 @@ const About = () => {
                 className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="bg-amber-100 p-3 rounded-lg">
-                    <stat.icon className="h-6 w-6 text-amber-600" />
+                  <div className="bg-amber-500 p-3 rounded-lg">
+                    <stat.icon className="h-6 w-6 text-gray-800" />
                   </div>
+
                   <div>
                     <div className="text-2xl font-bold text-gray-900">{stat.number}</div>
                     <div className="font-semibold text-gray-800">{stat.label}</div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Send, Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Send, Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram, Info } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -158,8 +158,14 @@ const Contact = () => {
               </div>
 
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2 flex items-center">
                   Type de projet *
+                  <div className="ml-2 relative group cursor-pointer">
+                    <Info className="h-4 w-4 text-gray-500 hover:text-amber-600" />
+                    <div className="absolute left-6 top-1/2 -translate-y-1/2 bg-white border border-gray-300 text-sm text-gray-700 p-2 rounded-lg shadow-md w-64 opacity-0 group-hover:opacity-100 transition-opacity duration-200 z-10">
+                      Le type de projet peut être modifié lors du devis.
+                    </div>
+                  </div>
                 </label>
                 <select
                   id="subject"
@@ -170,12 +176,9 @@ const Contact = () => {
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-600 focus:border-transparent transition-all duration-200"
                 >
                   <option value="">Sélectionnez un type de projet</option>
-                  <option value="site-vitrine">Site vitrine</option>
-                  <option value="ecommerce">E-commerce</option>
-                  <option value="application">Application web</option>
-                  <option value="refonte">Refonte de site existant</option>
-                  <option value="maintenance">Maintenance / Support</option>
-                  <option value="autre">Autre</option>
+                  <option value="Standard">Standard</option>
+                  <option value="Medium">Medium</option>
+                  <option value="Custom">Custom</option>
                 </select>
               </div>
 
