@@ -57,10 +57,11 @@ const Navigation = () => {
                   <button
                       key={link.href}
                       onClick={() => handleNavClick(link.href)}
-                      className="text-gray-300 hover:text-amber-600 transition-colors duration-200 font-medium cursor-pointer"
+                      className="text-gray-300 hover:text-amber-600 transition-colors duration-200 font-medium cursor-pointer px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-amber-600"
                   >
                     {link.label}
                   </button>
+
               ))}
               <button
                   onClick={() => handleNavClick('#contact')}
