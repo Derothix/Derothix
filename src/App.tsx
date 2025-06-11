@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -23,11 +23,12 @@ function App() {
         if (element) {
           const headerHeight = 80; // Account for fixed header
           const elementPosition = element.getBoundingClientRect().top;
-          const offsetPosition = elementPosition + window.pageYOffset - headerHeight;
+          const offsetPosition =
+            elementPosition + window.pageYOffset - headerHeight;
 
           window.scrollTo({
             top: offsetPosition,
-            behavior: 'smooth'
+            behavior: 'smooth',
           });
         }
       }
@@ -45,11 +46,11 @@ function App() {
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: '0px 0px -50px 0px',
     };
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('animate-fade-in');
         }
@@ -57,34 +58,34 @@ function App() {
     }, observerOptions);
 
     const elements = document.querySelectorAll('.fade-on-scroll');
-    elements.forEach((el) => observer.observe(el));
+    elements.forEach(el => observer.observe(el));
 
     return () => observer.disconnect();
   }, []);
 
   return (
-      <div className="min-h-screen">
-        <Navigation />
-        <main>
-          <Hero />
-          <div className="fade-on-scroll">
-            <About />
-          </div>
-          <div className="fade-on-scroll">
-            <Portfolio />
-          </div>
-          <div className="fade-on-scroll">
-            <Pricing />
-          </div>
-          <div className="fade-on-scroll">
-            <Testimonials />
-          </div>
-          <div className="fade-on-scroll">
-            <Contact />
-          </div>
-        </main>
-        <Footer />
-      </div>
+    <div className="min-h-screen">
+      <Navigation />
+      <main>
+        <Hero />
+        <div className="fade-on-scroll">
+          <About />
+        </div>
+        <div className="fade-on-scroll">
+          <Portfolio />
+        </div>
+        <div className="fade-on-scroll">
+          <Pricing />
+        </div>
+        <div className="fade-on-scroll">
+          <Testimonials />
+        </div>
+        <div className="fade-on-scroll">
+          <Contact />
+        </div>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
