@@ -1,4 +1,3 @@
-import React from 'react';
 import { Globe, Heart, ArrowUp } from 'lucide-react';
 
 const Footer = () => {

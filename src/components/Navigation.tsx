@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Menu, X, Globe } from 'lucide-react';
 
 const Navigation = () => {
