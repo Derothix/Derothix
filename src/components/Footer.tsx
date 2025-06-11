@@ -20,9 +20,9 @@ const Footer = () => {
               vos idées en succès digitaux. Votre vision, notre expertise.
             </p>
             <div className="flex space-x-4">
-              <span className="text-sm text-gray-400">Lausanne, Suisse</span>
+              <span className="text-sm text-gray-400">Attalens, Suisse</span>
               <span className="text-sm text-gray-400">•</span>
-              <span className="text-sm text-gray-400">+41 76 123 45 67</span>
+              <span className="text-sm text-gray-400">+41 79 366 14 61</span>
             </div>
           </div>
 
@@ -53,7 +53,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="flex items-center space-x-1 text-sm text-gray-400 mb-4 md:mb-0">
-            <span>© 2024 WebCraft Pro. Créé avec</span>
+            <span>© 2025 Derotix. Créé avec</span>
             <Heart className="h-4 w-4 text-red-500" />
             <span>en Suisse.</span>
           </div>
