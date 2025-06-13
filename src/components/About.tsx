@@ -53,7 +53,7 @@ const About = () => {
                 className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100"
               >
                 <div className="flex items-center space-x-4">
-                  <div className="bg-amber-500 p-3 rounded-lg">
+                  <div className="bg-amber-600 p-3 rounded-lg">
                     <stat.icon className="h-6 w-6 text-gray-800" />
                   </div>
 
