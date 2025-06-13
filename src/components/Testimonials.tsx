@@ -208,25 +208,25 @@ const Testimonials = () => {
                 alt={testimonials[currentIndex].name}
                 className="w-20 h-20 rounded-full mx-auto mb-4 object-cover ring-4 ring-orange-100"
               />
-<div className="flex justify-center mb-4">
-  {[...Array(testimonials[currentIndex].rating)].map((_, i) => {
-    const isVisible = i < visibleStars;
+              <div className="flex justify-center mb-4">
+                {[...Array(testimonials[currentIndex].rating)].map((_, i) => {
+                  const isVisible = i < visibleStars;
 
-    return (
-      <Star
-        key={i}
-        className={`h-5 w-5 text-amber-400 fill-current transition-all duration-500 ease-out transform
+                  return (
+                    <Star
+                      key={i}
+                      className={`h-5 w-5 text-amber-400 fill-current transition-all duration-500 ease-out transform
           ${isVisible
-            ? 'opacity-100 scale-100 rotate-0'
-            : 'opacity-0 scale-0 rotate-45'}
+                          ? 'opacity-100 scale-100 rotate-0'
+                          : 'opacity-0 scale-0 rotate-45'}
         `}
-        style={{
-          transitionDelay: isVisible ? `${i * 80}ms` : '0ms',
-        }}
-      />
-    );
-  })}
-</div>
+                      style={{
+                        transitionDelay: isVisible ? `${i * 80}ms` : '0ms',
+                      }}
+                    />
+                  );
+                })}
+              </div>
 
 
 
