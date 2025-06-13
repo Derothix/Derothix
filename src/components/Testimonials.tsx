@@ -1,8 +1,17 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Star, Quote, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Testimonials = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [visibleStars, setVisibleStars] = useState(0);
+  const [statsVisible, setStatsVisible] = useState(false);
+  const [animatedStats, setAnimatedStats] = useState({
+    satisfaction: 90,
+    rating: 4.9,
+    projects: 40
+  });
+  const statsRef = useRef<HTMLDivElement>(null);
 
   const testimonials = [
     {
@@ -52,27 +61,114 @@ const Testimonials = () => {
     }
   ];
 
+  const finalStats = {
+    satisfaction: 98,
+    rating: 4.9,
+    projects: 50
+  };
+
+  const startStats = {
+    satisfaction: 90,
+    rating: 4.9,
+    projects: 40
+  };
+
+  const animateValue = (start: number, end: number, duration: number, callback: (value: number) => void, isDecimal = false) => {
+    const startTime = Date.now();
+    const endTime = startTime + duration;
+
+    const timer = setInterval(() => {
+      const now = Date.now();
+      const remaining = Math.max((endTime - now) / duration, 0);
+      const value = end - (remaining * (end - start));
+
+      if (isDecimal) {
+        callback(Math.min(parseFloat(value.toFixed(1)), end));
+      } else {
+        callback(Math.min(Math.ceil(value), end));
+      }
+
+      if (value >= end) {
+        clearInterval(timer);
+      }
+    }, 16);
+  };
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !statsVisible) {
+            setStatsVisible(true);
+
+            animateValue(startStats.satisfaction, finalStats.satisfaction, 1000, (value) => {
+              setAnimatedStats(prev => ({ ...prev, satisfaction: value }));
+            });
+
+            setTimeout(() => {
+              animateValue(startStats.projects, finalStats.projects, 1000, (value) => {
+                setAnimatedStats(prev => ({ ...prev, projects: value }));
+              });
+            }, 200);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [statsVisible]);
+
+  const changeSlide = (newIndex: number) => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setCurrentIndex(newIndex);
+      setIsAnimating(false);
+    }, 150);
+  };
+
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
-        prevIndex === testimonials.length - 1 ? 0 : prevIndex + 1
-      );
+      changeSlide(currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1);
     }, 5000);
 
     return () => clearInterval(timer);
-  }, [testimonials.length]);
+  }, [currentIndex, testimonials.length]);
 
   const goToSlide = (index: number) => {
-    setCurrentIndex(index);
+    if (index !== currentIndex) {
+      changeSlide(index);
+    }
   };
 
   const goToPrevious = () => {
-    setCurrentIndex(currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1);
+    const newIndex = currentIndex === 0 ? testimonials.length - 1 : currentIndex - 1;
+    changeSlide(newIndex);
   };
 
   const goToNext = () => {
-    setCurrentIndex(currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1);
+    const newIndex = currentIndex === testimonials.length - 1 ? 0 : currentIndex + 1;
+    changeSlide(newIndex);
   };
+
+  // Animate stars on testimonial change
+  useEffect(() => {
+    setVisibleStars(0);
+    const total = testimonials[currentIndex].rating;
+    let count = 0;
+
+    const interval = setInterval(() => {
+      count += 1;
+      setVisibleStars(count);
+      if (count === total) clearInterval(interval);
+    }, 60);
+
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   return (
     <section id="avis" className="py-20 bg-stone-50">
@@ -82,27 +178,58 @@ const Testimonials = () => {
             Avis Clients
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Découvrez ce que nos clients disent de notre travail. 
+            Découvrez ce que nos clients disent de notre travail.
             Leur satisfaction est notre plus belle récompense.
           </p>
         </div>
 
-        <div className="relative max-w-4xl mx-auto">
-          {/* Main Testimonial */}
-          <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 relative">
+        <div className="relative max-w-4xl mx-auto px-16">
+          <button
+            onClick={goToPrevious}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 p-2 transition-all duration-200 hover:scale-110 active:scale-95 group"
+          >
+            <ChevronLeft className="h-8 w-8 text-orange-500 group-hover:text-orange-600 group-active:text-orange-700 transition-colors duration-200" />
+          </button>
+
+          <button
+            onClick={goToNext}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 p-2 transition-all duration-200 hover:scale-110 active:scale-95 group"
+          >
+            <ChevronRight className="h-8 w-8 text-orange-500 group-hover:text-orange-600 group-active:text-orange-700 transition-colors duration-200" />
+          </button>
+
+          <div className={`bg-white rounded-2xl shadow-xl p-8 md:p-12 relative transition-all duration-300 ${isAnimating ? 'opacity-0 transform scale-95' : 'opacity-100 transform scale-100'
+            }`}>
             <Quote className="absolute top-6 left-6 h-8 w-8 text-amber-600 opacity-20" />
-            
+
             <div className="text-center mb-8">
               <img
                 src={testimonials[currentIndex].avatar}
                 alt={testimonials[currentIndex].name}
-                className="w-20 h-20 rounded-full mx-auto mb-4 object-cover"
+                className="w-20 h-20 rounded-full mx-auto mb-4 object-cover ring-4 ring-orange-100"
               />
               <div className="flex justify-center mb-4">
-                {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 text-amber-400 fill-current" />
-                ))}
+                {[...Array(testimonials[currentIndex].rating)].map((_, i) => {
+                  const isVisible = i < visibleStars;
+
+                  return (
+                    <Star
+                      key={i}
+                      className={`h-5 w-5 text-amber-400 fill-current transition-all duration-500 ease-out transform
+          ${isVisible
+                          ? 'opacity-100 scale-100 rotate-0'
+                          : 'opacity-0 scale-0 rotate-45'}
+        `}
+                      style={{
+                        transitionDelay: isVisible ? `${i * 80}ms` : '0ms',
+                      }}
+                    />
+                  );
+                })}
               </div>
+
+
+
             </div>
 
             <blockquote className="text-lg md:text-xl text-gray-700 text-center mb-8 leading-relaxed">
@@ -114,53 +241,43 @@ const Testimonials = () => {
                 {testimonials[currentIndex].name}
               </h4>
               <p className="text-gray-600 mb-2">{testimonials[currentIndex].role}</p>
-              <p className="text-sm text-amber-600 font-medium">
+              <p className="text-sm text-orange-600 font-medium">
                 {testimonials[currentIndex].project}
               </p>
             </div>
           </div>
 
-          {/* Navigation Buttons */}
-          <button
-            onClick={goToPrevious}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 group"
-          >
-            <ChevronLeft className="h-6 w-6 text-gray-600 group-hover:text-amber-600" />
-          </button>
-          
-          <button
-            onClick={goToNext}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 bg-white rounded-full p-3 shadow-lg hover:shadow-xl transition-all duration-200 group"
-          >
-            <ChevronRight className="h-6 w-6 text-gray-600 group-hover:text-amber-600" />
-          </button>
-
-          {/* Dots Indicator */}
           <div className="flex justify-center mt-8 space-x-2">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                  index === currentIndex ? 'bg-amber-600' : 'bg-gray-300 hover:bg-gray-400'
-                }`}
+                className={`w-3 h-3 rounded-full transition-all duration-300 focus:outline-none ${index === currentIndex
+                  ? 'bg-orange-500 scale-125'
+                  : 'bg-gray-300 hover:bg-orange-300 hover:scale-110 active:scale-90'
+                  }`}
               />
             ))}
           </div>
         </div>
 
-        {/* Stats Row */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900 mb-2">98%</div>
+        <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+          <div className="text-center group">
+            <div className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-200 font-mono">
+              {animatedStats.satisfaction}%
+            </div>
             <div className="text-gray-600">Clients Satisfaits</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900 mb-2">4.9/5</div>
+          <div className="text-center group">
+            <div className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-200">
+              4.9/5
+            </div>
             <div className="text-gray-600">Note Moyenne</div>
           </div>
-          <div className="text-center">
-            <div className="text-3xl font-bold text-gray-900 mb-2">50+</div>
+          <div className="text-center group">
+            <div className="text-3xl font-bold text-gray-900 mb-2 group-hover:text-orange-600 transition-colors duration-200 font-mono">
+              {animatedStats.projects}+
+            </div>
             <div className="text-gray-600">Projets Réalisés</div>
           </div>
         </div>

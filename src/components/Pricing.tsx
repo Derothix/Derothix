@@ -17,7 +17,7 @@ const Pricing = () => {
         'Support technique 3 mois',
         'Livraison sous 2 semaines'
       ],
-      cta: 'Choisir Standard'
+      cta: 'Lancer mon site'
     },
     {
       name: 'Medium',
@@ -35,7 +35,7 @@ const Pricing = () => {
         'Support technique 6 mois',
         'Livraison sous 2 semaines'
       ],
-      cta: 'Choisir Medium'
+      cta: 'Faire évoluer mon entreprise'
     },
     {
       name: 'Custom',
@@ -54,7 +54,7 @@ const Pricing = () => {
         'Support et maintenance 1 an',
         'Formation équipe incluse'
       ],
-      cta: 'Demander un devis'
+      cta: 'Obtenir un devis maintenant'
     }
   ];
 

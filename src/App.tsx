@@ -7,6 +7,8 @@ import Pricing from './components/Pricing';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import { Toaster } from 'react-hot-toast';
+
 
 function App() {
   useEffect(() => {
@@ -65,6 +67,7 @@ function App() {
 
   return (
     <div className="min-h-screen">
+    <Toaster position="bottom-right" reverseOrder={false} />
       <Navigation />
       <main>
         <Hero />
