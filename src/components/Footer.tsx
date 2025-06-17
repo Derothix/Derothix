@@ -94,7 +94,7 @@ const Footer = () => {
                   href="#creations"
                   className="hover:text-amber-600 transition-colors duration-200"
                 >
-                  Portfolio
+                  Nos créations
                 </a>
               </li>
               <li>
@@ -102,7 +102,7 @@ const Footer = () => {
                   href="#prix"
                   className="hover:text-amber-600 transition-colors duration-200"
                 >
-                  Tarifs
+                  Nos prix
                 </a>
               </li>
               <li>
@@ -110,7 +110,7 @@ const Footer = () => {
                   href="#avis"
                   className="hover:text-amber-600 transition-colors duration-200"
                 >
-                  Témoignages
+                  Avis clients
                 </a>
               </li>
               <li>

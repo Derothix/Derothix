@@ -7,67 +7,38 @@ const Portfolio = () => {
   const projects = [
     {
       id: 1,
-      title: 'Restaurant Le Gourmet',
-      category: 'restaurant',
-      image: 'https://images.pexels.com/photos/1579253/pexels-photo-1579253.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: 'Site vitrine avec système de réservation en ligne',
-      tech: ['React', 'Node.js', 'MongoDB'],
-      link: '#'
+      title: 'Magnin Cuisine',
+      category: 'artisant',
+      image: 'src/assets/magnin.webp',
+      description: 'Site vitrine de présentation des services',
+      tech: ['Astro', 'Node.js', 'MongoDB'],
+      link: 'https://magnin-cuisine.vercel.app/'
     },
     {
       id: 2,
-      title: 'Cabinet d\'Avocat',
-      category: 'corporate',
-      image: 'https://images.pexels.com/photos/7688374/pexels-photo-7688374.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: 'Site professionnel avec blog et prise de rendez-vous',
-      tech: ['WordPress', 'PHP', 'MySQL'],
+      title: 'La Fille Du Phare',
+      category: 'artisant',
+      image: 'src/assets/fille_du_phare.webp',
+      description: 'Site vitrine de présentation du travail',
+      tech: ['ReactJS', 'Tailwind', 'HTML/CSS'],
       link: '#'
     },
     {
       id: 3,
-      title: 'Boutique Mode',
-      category: 'ecommerce',
-      image: 'https://images.pexels.com/photos/1488463/pexels-photo-1488463.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: 'E-commerce avec paiement sécurisé et gestion stock',
-      tech: ['Shopify', 'JavaScript', 'CSS3'],
+      title: 'Ton projet!',
+      category: '',
+      image: 'Ton projet!',
+      description: 'Laisse nous donner vie à tes idées pour ton site',
+      tech: ['Rapidité', 'Précision', 'SAV'],
       link: '#'
     },
-    {
-      id: 4,
-      title: 'Startup Tech',
-      category: 'startup',
-      image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: 'Landing page optimisée pour la conversion',
-      tech: ['Next.js', 'Tailwind', 'Vercel'],
-      link: '#'
-    },
-    {
-      id: 5,
-      title: 'Agence Immobilière',
-      category: 'corporate',
-      image: 'https://images.pexels.com/photos/210617/pexels-photo-210617.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: 'Plateforme avec recherche avancée de biens',
-      tech: ['Vue.js', 'Laravel', 'PostgreSQL'],
-      link: '#'
-    },
-    {
-      id: 6,
-      title: 'Gym & Fitness',
-      category: 'fitness',
-      image: 'https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&w=800',
-      description: 'Site avec réservation de cours et suivi membres',
-      tech: ['React', 'Firebase', 'Stripe'],
-      link: '#'
-    }
   ];
 
   const filters = [
     { key: 'all', label: 'Tous' },
-    { key: 'restaurant', label: 'Restaurant' },
-    { key: 'corporate', label: 'Corporate' },
-    { key: 'ecommerce', label: 'E-commerce' },
+    { key: 'artisant', label: 'Artisant' },
+    { key: 'finance', label: 'Finance' },
     { key: 'startup', label: 'Startup' },
-    { key: 'fitness', label: 'Fitness' }
   ];
 
   const filteredProjects = activeFilter === 'all' 
