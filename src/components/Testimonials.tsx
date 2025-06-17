@@ -64,7 +64,7 @@ const Testimonials = () => {
   const finalStats = {
     satisfaction: 98,
     rating: 4.9,
-    projects: 50
+    projects: 2
   };
 
   const startStats = {
