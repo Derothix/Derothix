@@ -9,7 +9,7 @@ const Portfolio = () => {
       id: 1,
       title: 'Magnin Cuisine',
       category: 'artisant',
-      image: 'src/assets/magnin.webp',
+      image: 'public/magnin.webp',
       description: 'Site vitrine de présentation des services',
       tech: ['Astro', 'Node.js', 'MongoDB'],
       link: 'https://magnin-cuisine.vercel.app/'
@@ -18,7 +18,7 @@ const Portfolio = () => {
       id: 2,
       title: 'La Fille Du Phare',
       category: 'artisant',
-      image: 'src/assets/fille_du_phare.webp',
+      image: 'public/fille_du_phare.webp',
       description: 'Site vitrine de présentation du travail',
       tech: ['ReactJS', 'Tailwind', 'HTML/CSS'],
       link: '#'
