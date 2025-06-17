@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
               <img
-                src="../../public/logo_no_bg.webp"
+                src="/logo_no_bg.webp"
                 alt="Logo"
                 className="h-8 w-8"
               />
