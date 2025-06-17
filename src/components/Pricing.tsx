@@ -4,7 +4,7 @@ const Pricing = () => {
   const plans = [
     {
       name: 'Standard',
-      price: '600',
+      price: '800',
       icon: Star,
       popular: false,
       description: 'Parfait pour débuter votre présence en ligne',
@@ -21,7 +21,7 @@ const Pricing = () => {
     },
     {
       name: 'Medium',
-      price: '1200',
+      price: '1300',
       icon: Zap,
       popular: true,
       description: 'Idéal pour les entreprises en croissance',
