@@ -27,7 +27,7 @@ const Portfolio = () => {
       id: 3,
       title: 'Ton projet!',
       category: '',
-      image: 'Ton projet!',
+      image: '/ton_projet.webp',
       description: 'Laisse nous donner vie à tes idées pour ton site',
       tech: ['Rapidité', 'Précision', 'SAV'],
       link: '#'
